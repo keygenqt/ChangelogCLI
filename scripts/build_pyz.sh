@@ -4,6 +4,9 @@
 ## Build pyz application
 ########################
 
+# Upgrade
+python3 -m pip install --upgrade shiv
+
 APP_NAME=$(grep "APP_NAME = '" changeln/src/support/conf.py  | sed "s/ //g" | sed "s/'//g" | sed "s/APP_NAME=//g")
 APP_VERSION=$(grep "APP_VERSION = '" changeln/src/support/conf.py  | sed "s/ //g" | sed "s/'//g" | sed "s/APP_VERSION=//g")
 

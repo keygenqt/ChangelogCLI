@@ -87,6 +87,15 @@ class ParseGit:
                                  .replace(']', r'\]')))
         for commit in commits:
             split = re.split(pattern, commit.message.strip())[1:]
+
+            # Ignore multiline commit.
+            if commit.message:
+                commit.message = commit.message.split('\n')[0]
+
+            # Add dot at the end.
+            if not commit.message.endswith('.'):
+                commit.message = f'{commit.message}.'
+
             # One commit
             if len(split) == 2:
                 result.append(commit)
